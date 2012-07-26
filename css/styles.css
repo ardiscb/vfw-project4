@@ -1,6 +1,6 @@
 /*
 Author: Courtney Ardis 
-Project: Web App Part 3
+Project: Web App Part 4
 Term: 1207
 */
 
@@ -18,6 +18,7 @@ Term: 1207
 body{
 	background-color: #999;
 	letter-spacing: .07em;
+	word-wrap: break-word;
 }
 
 /* h1 element with id="addComic" on the addItem.html page */
@@ -71,39 +72,30 @@ legend{
 }
 
 /* range input element with id="rateIssue" on the addItem.html page */
-#rateIssue {
-	display: block;
+#rangeValue, #rateIssue {
+	display: inline;
 }
 
-#items {
-	text-indent: -80px;
+.label, .input {
+	display: block;
 }
 
 #deleteA {
 	display: block;
 }
 
- div element within the header element on the index.html page 
+/* div element within the header element on the index.html page */
 /* div element which is dynamically created by JavaScript to display data on the addItem.html page */
 div{
 	margin-bottom: 5px;
 }
 
 /* ONLY a ul element within a div element which is dynamically created by JavaScript to display data on the addItem.html page */
-div>ul {
-	list-style: disc;
-}
 
 /* li element with the class="illStyle" on the addItem.html page  */
 .illStyle {
 	text-indent: -45px;
 	margin: 3px 0px;
-}
-
-/* li element within a ul element on the addItem.html page */
-li {
-	margin: 3px 0px;
-	list-style: none;
 }
 
 /* textarea element with an id="comments" on the addItem.html page  */
@@ -146,6 +138,25 @@ li {
    background: #2b5c1b;
 }
 /* END SOURCE */
+
+div ul{
+    float: left;
+    list-style-type: none;
+    margin: 5px 0px;
+    padding: 0px;
+}
+
+div ul li {
+    list-style-type: none;
+}
+
+hr{
+	float: left;
+    height: 12px;
+    width: 300px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}
 
 /* a element with an id="addNew" on the addItem.html page */
 #addNew{
