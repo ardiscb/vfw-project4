@@ -7,7 +7,6 @@ Term: 1207
 /* This css file is linked to index.html and addItem.html */
 /* Code is in logical order based on the addItem.html page */
 /* Section comments indicate where the selectors come from even though the style applies to all elements on the page(s) in which the stylesheet is linked */
-/* Where the text "ONLY" is used in the comments, indicates the exact element the selector is styling and where it is located */
 
 /* everything on both the index.html and addItem.html page is styled with the properties below*/
 *{
@@ -90,8 +89,6 @@ div{
 	margin-bottom: 5px;
 }
 
-/* ONLY a ul element within a div element which is dynamically created by JavaScript to display data on the addItem.html page */
-
 /* li element with the class="illStyle" on the addItem.html page  */
 .illStyle {
 	text-indent: -45px;
@@ -139,6 +136,7 @@ div{
 }
 /* END SOURCE */
 
+/* ul element within div element which is dynamically created by JavaScript to display data on the addItem.html page */
 div ul{
     float: left;
     list-style-type: none;
@@ -146,10 +144,12 @@ div ul{
     padding: 0px;
 }
 
+/* li element within ul element within div element which is dynamically created by JavaScript to display data on the addItem.html page */
 div ul li {
     list-style-type: none;
 }
 
+/*Horizontal line after each item*/
 hr{
 	float: left;
     height: 12px;
