@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 Author: Courtney Ardis 
-Project: Web App Part 3
+Project: Web App Part 4
 Term: 1207
 -->
 <html>
@@ -24,14 +24,14 @@ Term: 1207
 						<!-- Comic Information Inputs -->
 						<li id="required">*required fields</li>
 						<ul id="errors"></ul>
-						<li><label for="comicTitle">*Title of Comic:</label><input type="text" id="comicTitle" /></li>
-						<li><label for="seriesTitle">Title of Series:</label><input type="text" id="seriesTitle" /></li>
-						<li><label for="issueNum">*Issue Number:</label><input type="text" id="issueNum" /></li>
-						<li><label for="dateReleased">Date Released:</label><input type="date" id="dateReleased" /></li>
-						<li><label for="publisher">*Publisher:</label><input type="text" id="publisher" /></li>
-						<li><label for="rateIssue">Rate Issue (0-5 Scale):</label><input type="range" id="rateIssue" min="0" max="5" /></li>
+						<li><label for="comicTitle" class="label">*Title of Comic:</label><input type="text" id="comicTitle" /></li>
+						<li><label for="seriesTitle" class="label">Title of Series:</label><input type="text" id="seriesTitle" /></li>
+						<li><label for="issueNum" class="label">*Issue Number:</label><input type="text" id="issueNum" /></li>
+						<li><label for="dateReleased" class="label">Date Released:</label><input type="date" id="dateReleased" /></li>
+						<li><label for="publisher" class="label">*Publisher:</label><input type="text" id="publisher" /></li>
+						<li><label for="rateIssue" class="label">Rate Issue (Scale 0-5):</label><input type="range" id="rateIssue" min="0" max="5" onchange="rangeValue.value=value" /><output id="rangeValue"></output></li>
 		 				<!--Genre Dropdown Menu-->
-		 				<li id="select"><label for="genre">*Select Genre:</label></li> 
+		 				<li id="select"><label for="genre" class="label">*Select Genre:</label></li> 
 						<!--REPLACED so JavaScript can create the menu dynamically
 							<select id="genre">
 								<option>Superhero</option>
@@ -52,7 +52,7 @@ Term: 1207
 						</li>
 						<!-- Comment Textarea -->
 						<li><label for="comments">Comments:</label><textarea id="comments"></textarea></li>
-					</ul>			
+					</ul>		
 			</fieldset>
 			<!-- Submit Elements -->			
 			<input class="hide" type="hidden" name="country" value="USA" />
@@ -66,6 +66,7 @@ Term: 1207
 				<a href="addItem.html" id="addNew">Add New Comic</a>
 			</nav>
 		</footer>
+		<script src="js/json.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 	</body>
 </html>
