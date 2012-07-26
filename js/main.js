@@ -1,6 +1,6 @@
 /*
 Author: Courtney Ardis 
-Project: Web App Part 3
+Project: Web App Part 4
 Term: 1207
 */
 
@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		return theElement;
 	}
 	//Variable defaults
-	var comicGenre = ["--Choose A Genre--", "Superhero", "Horror", "Sci-fi", "Western", "Romance", "Pulp"],
+	var comicGenre = ["--Choose A Genre--", "Superhero", "Horror", "Sci-fi", "Western", "Romance"],
 		styleValue,
 		errMsg = e('errors');
 
@@ -100,7 +100,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There is no data in Local Storage.");
+			alert("There is no data in Local Storage so default data was added.");
+			autoFillData();
 		}
 		//Write Data from Local Storage to the browser
 		var makeDiv = document.createElement('div');
@@ -119,6 +120,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeLi.appendChild(makeSubList);
+			getImage(obj.genre[1], makeSubList);
 			for (var n in obj){
 				var makeSubLi = document.createElement('li');
 				makeSubList.appendChild(makeSubLi);
@@ -127,6 +129,25 @@ window.addEventListener("DOMContentLoaded", function() {
 				makeSubList.appendChild(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi);//Function call for our edit and delete buttons/links
+		}
+	}
+
+	//Get the image for the right category
+	function getImage(catName, makeSubList){
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "images/" + catName + ".png");
+		imageLi.appendChild(newImg);
+	}
+
+	//Auto Popluate Local Storage
+	function autoFillData(){
+		//The actual JSON OBJECT data required for this to work is coming from our json.js file, which is loaded from our HTML page
+		//Store JSON OBJECT into Local Storage
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}
 
@@ -155,6 +176,10 @@ window.addEventListener("DOMContentLoaded", function() {
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
+
+		//Creates a horizontal line/separator after each item
+		var hr = document.createElement('hr');
+		linksLi.appendChild(hr);
 	}
 
 	//Function that allows for a single item to be edited
@@ -173,6 +198,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		e('dateReleased').value = item.dateReleased[1];
 		e('publisher').value 	= item.publisher[1];
 		e('rateIssue').value 	= item.rateIssue[1];
+		e('rangeValue').value 	= item.rateIssue[1];
 		e('genre').value 		= item.genre[1];
 		var radios = document.forms[0].illStyle;
 		for(var i=0; i<radios.length; i++){
